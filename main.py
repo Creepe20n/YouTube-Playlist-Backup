@@ -1,5 +1,4 @@
 import os
-import pytube as yt
 from FastStuff import FastFile as FF
 from FastStuff import FastYT as FYT
 import ErrorLoger as EL
@@ -12,6 +11,10 @@ def main():
     print('Welcome to Charlie2.0')
     StartActions()
 def StartActions():
+    if not EL.ProgramTests.PytubeApiTest():
+        print('Failure')
+        while True:
+            pass
     print("Looking for Savefile (o_0)")
     MainFilePath =os.path.expanduser("~\\"+MainFileName)
     if not FF.LookForExiting(MainFilePath,True):
